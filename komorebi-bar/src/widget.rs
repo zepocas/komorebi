@@ -12,6 +12,8 @@ use crate::media::Media;
 use crate::media::MediaConfig;
 use crate::memory::Memory;
 use crate::memory::MemoryConfig;
+use crate::microphone::Microphone;
+use crate::microphone::MicrophoneConfig;
 use crate::network::Network;
 use crate::network::NetworkConfig;
 use crate::render::RenderConfig;
@@ -40,6 +42,7 @@ pub enum WidgetConfig {
     Komorebi(KomorebiConfig),
     Media(MediaConfig),
     Memory(MemoryConfig),
+    Microphone(MicrophoneConfig),
     Network(NetworkConfig),
     Storage(StorageConfig),
     Time(TimeConfig),
@@ -56,6 +59,7 @@ impl WidgetConfig {
             WidgetConfig::Komorebi(config) => Box::new(Komorebi::from(config)),
             WidgetConfig::Media(config) => Box::new(Media::from(*config)),
             WidgetConfig::Memory(config) => Box::new(Memory::from(*config)),
+            WidgetConfig::Microphone(config) => Box::new(Microphone::from(*config)),
             WidgetConfig::Network(config) => Box::new(Network::from(*config)),
             WidgetConfig::Storage(config) => Box::new(Storage::from(*config)),
             WidgetConfig::Time(config) => Box::new(Time::from(config.clone())),
@@ -80,6 +84,7 @@ impl WidgetConfig {
             }
             WidgetConfig::Media(config) => config.enable,
             WidgetConfig::Memory(config) => config.enable,
+            WidgetConfig::Microphone(config) => config.enable,
             WidgetConfig::Network(config) => config.enable,
             WidgetConfig::Storage(config) => config.enable,
             WidgetConfig::Time(config) => config.enable,

@@ -8,6 +8,7 @@ mod komorebi;
 mod komorebi_layout;
 mod media;
 mod memory;
+mod microphone;
 mod network;
 mod render;
 mod selected_frame;
